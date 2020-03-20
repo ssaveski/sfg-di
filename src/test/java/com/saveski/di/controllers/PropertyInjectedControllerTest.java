@@ -1,5 +1,22 @@
-import static org.junit.jupiter.api.Assertions.*;
+package com.saveski.di.controllers;
+
+import com.saveski.di.services.ConstructorGreetingService;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class PropertyInjectedControllerTest {
 
+    PropertyInjectedController controller;
+
+    @BeforeEach
+    void setUp() {
+        controller = new PropertyInjectedController();
+        controller.greetingService = new ConstructorGreetingService();
+    }
+
+    @Test
+    void getGreeting() {
+
+        System.out.println(controller.getGreeting());
+    }
 }
